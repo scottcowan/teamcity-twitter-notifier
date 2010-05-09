@@ -1,6 +1,6 @@
 <project name="Nabaztag" default="build">
     <property name="app" value="twitter"/>
-    <property name="version" value="0.2"/>
+    <property name="version" value="0.2.1"/>
     <property name="distdir" value="build/${app}-${version}"/>
     <property name="teamcity.home" location="C:/TeamCity"/>
     <property name="teamcity.appdir" location="${teamcity.home}/webapps/ROOT/WEB-INF"/>

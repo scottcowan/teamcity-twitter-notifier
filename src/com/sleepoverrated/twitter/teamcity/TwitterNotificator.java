@@ -77,6 +77,10 @@ public class TwitterNotificator implements Notificator {
         props.setProperty("#BUILDNAME#", sRunningBuild.getFullName().split("::")[1]);
         props.setProperty("#FULLNAME#", sRunningBuild.getFullName());
         props.setProperty("#BUILDNUMBER#", sRunningBuild.getBuildNumber());
+        if(sRunningBuild.getRevisions().size()>0)
+            props.setProperty("#VCSNUMBER#", sRunningBuild.getRevisions().get(0).getRevisionDisplayName());
+        else
+            props.setProperty("#VCSNUMBER#", "");
         System.out.println("Build started");
         for (SUser user : sUsers) {
             doNotifications(formatMessage(props, user.getPropertyValue(BUILD_STARTED)), user);
@@ -87,6 +91,10 @@ public class TwitterNotificator implements Notificator {
         Properties props = new Properties();
         props.setProperty("#BUILDNAME#", sRunningBuild.getFullName().split("::")[1]);
         props.setProperty("#FULLNAME#", sRunningBuild.getFullName());
+        if(sRunningBuild.getRevisions().size()>0)
+            props.setProperty("#VCSNUMBER#", sRunningBuild.getRevisions().get(0).getRevisionDisplayName());
+        else
+            props.setProperty("#VCSNUMBER#", "");
         props.setProperty("#BUILDNUMBER#", sRunningBuild.getBuildNumber());
         for (SUser user : sUsers) {
             doNotifications(formatMessage(props, user.getPropertyValue(BUILD_SUCCESSFUL)), user);
@@ -97,6 +105,10 @@ public class TwitterNotificator implements Notificator {
         Properties props = new Properties();
         props.setProperty("#BUILDNAME#", sRunningBuild.getFullName().split("::")[1]);
         props.setProperty("#FULLNAME#", sRunningBuild.getFullName());
+        if(sRunningBuild.getRevisions().size()>0)
+            props.setProperty("#VCSNUMBER#", sRunningBuild.getRevisions().get(0).getRevisionDisplayName());
+        else
+            props.setProperty("#VCSNUMBER#", "");
         props.setProperty("#BUILDNUMBER#", sRunningBuild.getBuildNumber());
         for (SUser user : sUsers) {
             doNotifications(formatMessage(props, user.getPropertyValue(BUILD_FAILED)), user);
@@ -107,6 +119,7 @@ public class TwitterNotificator implements Notificator {
         Properties props = new Properties();
         props.setProperty("#BUILDNAME#", build.getFullName().split("::")[1]);
         props.setProperty("#FULLNAME#", build.getFullName());
+        props.setProperty("#VCSNUMBER#", "");
         props.setProperty("#BUILDNUMBER#", build.getBuildNumber());
         for (SUser user : sUsers) {
             doNotifications(formatMessage(props, user.getPropertyValue(BUILD_LABELING_FAILED)), user);
@@ -117,6 +130,10 @@ public class TwitterNotificator implements Notificator {
         Properties props = new Properties();
         props.setProperty("#BUILDNAME#", sRunningBuild.getFullName().split("::")[1]);
         props.setProperty("#FULLNAME#", sRunningBuild.getFullName());
+        if(sRunningBuild.getRevisions().size()>0)
+            props.setProperty("#VCSNUMBER#", sRunningBuild.getRevisions().get(0).getRevisionDisplayName());
+        else
+            props.setProperty("#VCSNUMBER#", "");
         props.setProperty("#BUILDNUMBER#", sRunningBuild.getBuildNumber());
         for (SUser user : sUsers) {
             doNotifications(formatMessage(props, user.getPropertyValue(BUILD_FAILING)), user);
@@ -128,6 +145,10 @@ public class TwitterNotificator implements Notificator {
         Properties props = new Properties();
         props.setProperty("#BUILDNAME#", sRunningBuild.getFullName().split("::")[1]);
         props.setProperty("#FULLNAME#", sRunningBuild.getFullName());
+        if(sRunningBuild.getRevisions().size()>0)
+            props.setProperty("#VCSNUMBER#", sRunningBuild.getRevisions().get(0).getRevisionDisplayName());
+        else
+            props.setProperty("#VCSNUMBER#", "");
         props.setProperty("#BUILDNUMBER#", sRunningBuild.getBuildNumber());
         for (SUser user : sUsers) {
             doNotifications(formatMessage(props, user.getPropertyValue(BUILD_HANGING)), user);
